@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription – À la formation : De Zéro à Influence</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.1);
+      padding: 32px;
+      width: 100%;
+      max-width: 600px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      color: #4a3aff;
+    }
+    .field { margin-bottom: 16px; text-align: left; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      background: #4a3aff;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+    }
+    button:hover { background: #3729c4; }
+    .confirmation {
+      display: none;
+    }
+    .confirmation h2 {
+      color: #28a745;
+      margin-bottom: 12px;
+    }
+    .confirmation img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .telegram-btn {
+      display: inline-block;
+      background: #0088cc;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .telegram-btn:hover {
+      background: #006f9c;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .card { padding: 20px; }
+      input, select, textarea { font-size: 14px; }
+      button { font-size: 14px; padding: 12px; }
+      .telegram-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="form-wrapper">
+      <h1>Inscription – À la formation : De Zéro à Influence</h1>
+      <!-- Formulaire connecté au Google Form -->
+      <form id="inscription-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc-FUKd3lNqsPam_gxzmXXwg6OA5IrumZogUWFovdFv-Meu3g/formResponse" method="POST" target="hidden_iframe" onsubmit="showConfirmation()">
+        <div class="field">
+          <label for="name">Nom complet</label>
+          <input id="name" name="entry.2005620554" type="text" required />
+        </div>
+        <div class="field">
+          <label for="email">Adresse e-mail</label>
+          <input id="email" name="entry.1045781291" type="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Numéro de téléphone</label>
+          <input id="phone" name="entry.1166974658" type="tel" />
+        </div>
+        <div class="field">
+          <label for="city">Ville / Pays</label>
+          <input id="city" name="entry.839337160" type="text" required />
+        </div>
+        <div class="field">
+          <label for="motivation">Pourquoi souhaitez-vous suivre cette formation ?</label>
+          <textarea id="motivation" name="entry.1065046570" rows="4" required></textarea>
+        </div>
+        <div class="field">
+          <label for="level">Votre niveau actuel</label>
+          <select id="level" name="entry.839739135" required>
+            <option value="">Sélectionnez…</option>
+            <option>Débutant(e)</option>
+            <option>Intermédiaire</option>
+            <option>Avancé(e)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="source">Comment avez-vous entendu parler de la formation ?</label>
+          <select id="source" name="entry.1720832951">
+            <option value="">Sélectionnez…</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>WhatsApp</option>
+            <option>Recommandation</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>
+            <input type="checkbox" name="entry.2001485267" required />
+            Je m’engage à suivre la formation et à mettre en pratique les enseignements.
+          </label>
+        </div>
+        <button type="submit">Envoyer mon inscription</button>
+      </form>
+    </div>
+
+    <!-- Message de confirmation -->
+    <div id="confirmation" class="confirmation">
+      <h2>✅ Merci pour votre inscription !</h2>
+      <p>Vous recevrez très bientôt un e-mail de confirmation avec tous les détails nécessaires.</p>
+      <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80" alt="Inspiration" />
+      <p>Rejoignez dès maintenant notre communauté privée pour rester connecté et avancer avec d’autres participants :</p>
+      <a href="https://t.me/+3eE5mEavCYZlY2Vk" target="_blank" class="telegram-btn">👉 Rejoindre le groupe Telegram</a>
+    </div>
+  </div>
+
+  <!-- Iframe caché pour éviter redirection -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function showConfirmation() {
+      setTimeout(() => {
+        document.getElementById('inscription-form').style.display = 'none';
+        document.getElementById('confirmation').style.display = 'block';
+      }, 500);
+    }
+  </script>
+</body>
+</html>
